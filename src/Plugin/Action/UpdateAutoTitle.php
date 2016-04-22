@@ -2,12 +2,12 @@
 
 /**
  * @file
- * Contains \Drupal\auto_nodetitle\Plugin\Action\UpdateAutoNodeTitle.
+ * Contains \Drupal\auto_title\Plugin\Action\UpdateAutoTitle.
  */
 
-namespace Drupal\auto_nodetitle\Plugin\Action;
+namespace Drupal\auto_title\Plugin\Action;
 
-use Drupal\auto_nodetitle\AutoTitle;
+use Drupal\auto_title\AutoTitle;
 use Drupal\Core\Action\ActionBase;
 use Drupal\Core\Session\AccountInterface;
 
@@ -15,12 +15,12 @@ use Drupal\Core\Session\AccountInterface;
  * Provides an action that updates nodes with their automatic titles.
  *
  * @Action(
- *   id = "auto_nodetitle_update_action",
- *   label = @Translation("Update automatic nodetitles"),
+ *   id = "auto_title_update_action",
+ *   label = @Translation("Update automatic titles"),
  *   type = "node"
  * )
  */
-class UpdateAutoNodeTitle extends ActionBase {
+class UpdateAutoTitle extends ActionBase {
 
   // @todo DI for AutoTitle
   

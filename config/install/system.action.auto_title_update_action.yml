@@ -1,0 +1,9 @@
+id: auto_title_update_action
+label: 'Update automatic titles'
+status: true
+langcode: en
+type: node
+plugin: auto_title_update_action
+dependencies:
+  module:
+    - node

@@ -1,0 +1,33 @@
+<?php
+
+/**
+ * @file
+ * Installation file for the automatic title module
+ */
+
+/**
+ * Implements hook_install().
+ */
+function auto_title_install() {
+  module_set_weight('auto_title', 5);
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function auto_title_uninstall() {
+  foreach (node_type_get_names('names') as $type => $type_name) {
+    \Drupal::configFactory()->getEditable('auto_title.node.' . $type)->delete();
+    \Drupal::configFactory()->getEditable('auto_title.pattern.node.' . $type)->delete();
+    \Drupal::configFactory()->getEditable('auto_title.php.node.' . $type)->delete();
+  }
+}
+
+/**
+ * make sure hooks are invoked after cck main hooks
+ */
+function auto_title_update_1() {
+  $ret = array();
+  $ret[] = module_set_weight('auto_title', 5);;
+  return $ret;
+}

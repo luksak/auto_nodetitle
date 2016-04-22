@@ -2,10 +2,10 @@
 
 /**
  * @file
- * Contains \Drupal\auto_nodetitle\AutoTitle.
+ * Contains \Drupal\auto_title\AutoTitle.
  */
 
-namespace Drupal\auto_nodetitle;
+namespace Drupal\auto_title;
 
 use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Entity\ContentEntityInterface;
@@ -260,7 +260,7 @@ class AutoTitle implements AutoTitleInterface {
   protected function getConfig($value) {
     if (!isset($this->config)) {
       $key = $this->entity_type . '.' . $this->entity_bundle;
-      $this->config = $this->configFactory->get('auto_nodetitle.' . $key);
+      $this->config = $this->configFactory->get('auto_title.' . $key);
     }
 
     return $this->config->get($value);

@@ -2,10 +2,10 @@
 
 /**
  * @file
- * Contains Drupal\auto_nodetitle\AutoTitleInterface.
+ * Contains Drupal\auto_title\AutoTitleInterface.
  */
 
-namespace Drupal\auto_nodetitle;
+namespace Drupal\auto_title;
 
 /**
  * Provides an interface for AutoTitle.

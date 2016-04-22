@@ -1,10 +1,10 @@
 <?php
 /**
  * @file
- * Contains \Drupal\auto_nodetitle\EntityDecoratorInterface.
+ * Contains \Drupal\auto_title\EntityDecoratorInterface.
  */
 
-namespace Drupal\auto_nodetitle;
+namespace Drupal\auto_title;
 
 use Drupal\Core\Entity\ContentEntityInterface;
 
@@ -18,7 +18,7 @@ interface EntityDecoratorInterface {
    *
    * @param \Drupal\Core\Entity\ContentEntityInterface $entity
    *
-   * @return \Drupal\auto_nodetitle\AutoTitle|\Drupal\Core\Entity\ContentEntityInterface
+   * @return \Drupal\auto_title\AutoTitle|\Drupal\Core\Entity\ContentEntityInterface
    */
   public function decorate(ContentEntityInterface $entity);
 }

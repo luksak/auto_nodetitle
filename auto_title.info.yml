@@ -1,0 +1,6 @@
+name: Automatic Titles
+description: Automatically generates entity titles.
+core: 8.x
+type: module
+package: Content
+version: VERSION

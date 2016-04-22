@@ -2,10 +2,10 @@
 
 /**
  * @file
- * Contains \Drupal\auto_nodetitle\EntityDecorator.
+ * Contains \Drupal\auto_title\EntityDecorator.
  */
 
-namespace Drupal\auto_nodetitle;
+namespace Drupal\auto_title;
 
 use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Entity\ContentEntityInterface;
