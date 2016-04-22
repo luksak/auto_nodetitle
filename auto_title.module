@@ -94,15 +94,6 @@ function auto_title_form_node_type_form_alter(&$form, FormStateInterface $form_s
     '#default_value' => \Drupal::config('auto_title.node.' . $type)
       ->get('pattern') ?: '',
   );
-  // Don't allow editing of the pattern if PHP is used, but the users lacks
-  // permission for PHP.
-  if (\Drupal::config('auto_title.node.' . $type)
-      ->get('php') && !\Drupal::currentUser()
-      ->hasPermission('use PHP for title patterns')
-  ) {
-    $form['auto_title']['ant_pattern']['#disabled'] = TRUE;
-    $form['auto_title']['ant_pattern']['#description'] = t('You are not allow the configure the pattern for the title, as you lack the %permission permission.', array('%permission' => t('Use PHP for title patterns')));
-  }
 
   // Display the list of available placeholders if token module is installed.
   if (Drupal::moduleHandler()->moduleExists('token')) {
@@ -112,15 +103,6 @@ function auto_title_form_node_type_form_alter(&$form, FormStateInterface $form_s
     );
   }
 
-  $form['auto_title']['php'] = array(
-    '#access' => \Drupal::currentUser()
-      ->hasPermission('use PHP for title patterns'),
-    '#type' => 'checkbox',
-    '#title' => t('Evaluate PHP in pattern.'),
-    '#description' => t('Put PHP code above that returns your string, but make sure you surround code in &lt;?php and ?&gt;. Note that $node is available and can be used by your code.'),
-    '#default_value' => \Drupal::config('auto_title.node.' . $type)
-      ->get('php') ?: '',
-  );
   $form['actions']['submit']['#submit'][] = 'auto_title_form_node_type_form_submit';
 }
 
@@ -165,7 +147,6 @@ function auto_title_node_type_update(NodeTypeInterface $type) {
     $new_config
       ->set('status', $original_config->get('status') ?: '')
       ->set('pattern', $original_config->get('pattern') ?: '')
-      ->set('php', $original_config->get('php') ?: '')
       ->save();
     $original_config->delete();
   }

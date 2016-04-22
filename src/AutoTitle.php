@@ -239,10 +239,6 @@ class AutoTitle implements AutoTitleInterface {
         'clear' => TRUE
       ));
 
-    // Evaluate PHP.
-    if ($this->getConfig('php')) {
-      $output = $this->evalTitle($output, $this->entity);
-    }
     // Strip tags.
     $output = preg_replace('/[\t\n\r\0\x0B]/', '', strip_tags($output));
 
@@ -286,26 +282,6 @@ class AutoTitle implements AutoTitleInterface {
     }
 
     return $title;
-  }
-
-  /**
-   * Evaluates php code and passes the entity to it.
-   *
-   * @param $code
-   *   PHP code to evaluate.
-   * @param \Drupal\Core\Entity\ContentEntityInterface $entity
-   *   Content entity to pass through to the PHP script.
-   *
-   * @return string
-   *   String to use as title.
-   */
-  protected function evalTitle($code, $entity) {
-    ob_start();
-    print eval('?>' . $code);
-    $output = ob_get_contents();
-    ob_end_clean();
-
-    return $output;
   }
 
 }

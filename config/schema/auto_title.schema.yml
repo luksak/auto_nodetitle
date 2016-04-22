@@ -7,9 +7,6 @@ auto_title.node.*:
     status:
       type: integer
       label: 'Preview before submitting'
-    php:
-      type: integer
-      label: 'The auto title php settings'
     pattern:
       type: string
       label: 'The auto title pattern settings'

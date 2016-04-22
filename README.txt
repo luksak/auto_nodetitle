@@ -13,9 +13,6 @@ e.g. the token [current-user:name] is going to be replaced with the currently lo
 users name. If the token module is installed, a list of possible replacement patterns
 will be shown.
 
-Advanced users can also provide some PHP code, that is used for automatically generating an
-appropriate title.
-
 Installation
 ------------
  * (optional) Download and install the token module in order to get token
@@ -24,45 +21,11 @@ Installation
  * For each content type you want to have an automatic title, configure the
    module at 'admin/structure/types'.
 
-
 Note
 -----
  Due to the way the module works, it is not possible to make use of some replacement
  tokens that are not available before the content is saved the first time, e.g.
  [node:nid].
-
-
-
- Advanced Use: PHP Code
-------------------------
- You can access $node from your php code. Look at this simple example, which just adds the node's
- author as title:
-
-<?php return "Author: $node->name"; ?>
-
-
-
- Advanced Use: Combining tokens and PHP
- ---------------------------------------
-
- You can combine php evalution with the token module, because tokens are replaced first.
- However be aware to don't use this with any textual values provided by users as this would
- open a security hole. If you are in doubt, don't combine tokens with php evaluation.
-
- Here is an example:
-
-<?php
-  $token = '[field_testnumber]';
-  if (empty($token)) {
-    return '[type]';
-  }
-  else {
-    return $token;
-  }
-?>
-
- So if the text of the number field [field_testnumber] isn't empty it will be used as title.
- Otherwise the node type will be used.
 
 
  Updating titles from existing nodes
